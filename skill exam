@@ -1,0 +1,60 @@
+// Counter.js
+import React, { useState } from 'react';
+
+const Counter = () => {
+  const [count, setCount] = useState(0);
+
+  const increment = () => {
+    setCount(prevCount => prevCount + 1);
+  };
+
+  const decrement = () => {
+    setCount(prevCount => prevCount - 1);
+  };
+
+  const reset = () => {
+    setCount(0);
+  };
+
+  const buttonStyle = {
+    padding: '10px 20px',
+    margin: '5px',
+    fontSize: '16px',
+    cursor: 'pointer',
+    borderRadius: '5px',
+    border: 'none',
+    color: 'white',
+    backgroundColor: '#007bff', // Blue
+  };
+
+  const resetButtonRedStyle = {
+    ...buttonStyle,
+    backgroundColor: '#dc3545', // Red
+  };
+
+  const counterDisplay = {
+    fontSize: '2em',
+    margin: '20px 0',
+    fontWeight: 'bold',
+  };
+
+  const containerStyle = {
+    textAlign: 'center',
+    fontFamily: 'Arial, sans-serif',
+    marginTop: '50px',
+  };
+
+  return (
+    <div style={containerStyle}>
+      <h1>Simple Counter</h1>
+      <div style={counterDisplay}>Current Value: {count}</div>
+      <div>
+        <button style={buttonStyle} onClick={increment}>Increment</button>
+        <button style={buttonStyle} onClick={decrement}>Decrement</button>
+        <button style={resetButtonRedStyle} onClick={reset}>Reset</button>
+      </div>
+    </div>
+  );
+};
+
+export default Counter;
